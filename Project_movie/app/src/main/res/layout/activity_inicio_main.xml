@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:gravity="center"
+    android:backgroundTint="#420513"
+    android:background="@color/black"
+    tools:context="com.maxpayneman.project_movie.View.InicioMainActivity">
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Bem vindo"
+        android:textSize="35dp"
+        android:textColor="#4DEACA"
+        android:layout_marginBottom="20sp">
+    </TextView>
+
+    <Button
+        android:id="@+id/button_cadastro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Cadastre-se"
+        android:textSize="26dp"
+        android:textColor="#700D0D"
+        android:layout_marginBottom="10dp"
+        android:backgroundTint="#000000">
+    </Button>
+
+    <Button
+        android:id="@+id/button_logar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Iniciar-Sessão"
+        android:textSize="25dp"
+        android:textColor="#700D0D"
+        android:backgroundTint="#000000">
+    </Button>
+
+
+</LinearLayout>

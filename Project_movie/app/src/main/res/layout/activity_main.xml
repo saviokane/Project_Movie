@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:backgroundTint="#20071F"
+    android:background="@color/black"
+    android:orientation="vertical"
+    tools:context="com.maxpayneman.project_movie.View.LoginMainActivity">
+
+    <TextView
+        android:id="@+id/text_teste"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#8BFFFB"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:text="Insira Usuario e Senha!"
+        android:layout_marginBottom="20sp"
+        ></TextView>
+    <TextView
+        android:id="@+id/text_teste2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#8BFFFB"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:text="Rafael"
+        android:layout_marginBottom="20sp"
+        ></TextView>
+
+
+    <EditText
+        android:id="@+id/user"
+        android:textColor="#00FF2A"
+        android:layout_width="250dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:hint="Informe Usuario:"
+        android:textSize="25dp"
+        android:textColorHint="#A600FF22">
+
+    </EditText>
+
+
+    <EditText
+        android:id="@+id/senha"
+        android:textColor="#00FF2A"
+        android:layout_width="250dp"
+        android:gravity="center"
+        android:layout_height="wrap_content"
+        android:textSize="27dp"
+        android:inputType="textPassword"
+        android:textColorHint="#A400FF37"
+        android:hint="Informe Senha:">
+
+    </EditText>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+
+        <Button
+            android:id="@+id/button_voltar"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30sp"
+            android:textSize="20dp"
+            android:layout_margin="10dp"
+            android:text="Voltar"></Button>
+
+        <Button
+            android:id="@+id/button_logar"
+            android:layout_width="150dp"
+            android:layout_height="60dp"
+            android:layout_marginTop="30sp"
+            android:textSize="20dp"
+            android:layout_margin="10dp"
+            android:text="Logar"></Button>
+
+
+    </LinearLayout>
+
+</LinearLayout>
