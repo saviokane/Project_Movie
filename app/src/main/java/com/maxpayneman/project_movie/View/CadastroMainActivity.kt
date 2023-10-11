@@ -14,20 +14,9 @@ class CadastroMainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root);
 
-
-
         val usuario  = UsuarioController.getInstance();
 
-
-
-
-
 //        usuario.Registrar("maylon", "153", 1, "1");
-
-
-
-
-
 
         binding.buttonRealizarCadastro.setOnClickListener {
 
@@ -43,7 +32,6 @@ class CadastroMainActivity : AppCompatActivity() {
             Toast.makeText(this, "Cadastro realizado com sucesso ", Toast.LENGTH_SHORT).show()
             finish()//apartir daqui ele limpa o cache e retorna a margin 0
         }
-
         binding.buttonVoltar.setOnClickListener {
 
             finish();

@@ -6,7 +6,8 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:backgroundTint="#121230"
+    android:backgroundTint="#000000"
+
     android:background="@color/black"
     tools:context="com.maxpayneman.project_movie.View.CadastroMainActivity">
 

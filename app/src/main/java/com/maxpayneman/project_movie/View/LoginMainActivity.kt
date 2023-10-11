@@ -1,6 +1,7 @@
 package com.maxpayneman.project_movie.View
 
 import android.content.Context
+import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.maxpayneman.aulayt_8.databinding.ActivityMainBinding
@@ -29,8 +30,8 @@ class LoginMainActivity : AppCompatActivity() {
 
         }
 
-        binding.buttonVoltar.setOnClickListener {
-            finish();
+        binding.criarConta.setOnClickListener{
+            startActivity(Intent(this, CadastroMainActivity::class.java))
         }
 
 
