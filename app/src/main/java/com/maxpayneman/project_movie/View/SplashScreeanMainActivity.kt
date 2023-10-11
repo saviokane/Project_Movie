@@ -15,11 +15,12 @@ class SplashScreeanMainActivity : AppCompatActivity() {
         binding = ActivitySplashScreeanMainBinding.inflate(layoutInflater);
         super.onCreate(savedInstanceState)
         setContentView(binding.root);
+
         val mediaPLayer = MediaPlayer.create(applicationContext, R.raw.toque)
         mediaPLayer.start()
         Handler(Looper.getMainLooper()).postDelayed({
 
-        startActivity(Intent(this, LoginMainActivity::class.java));
+            startActivity(Intent(this, LoginMainActivity::class.java));
             finish();
         }, 3000);
 

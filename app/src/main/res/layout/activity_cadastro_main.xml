@@ -2,91 +2,82 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/linearLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:background="@drawable/background"
     android:gravity="center"
-    android:backgroundTint="#000000"
-
-    android:background="@color/black"
+    android:orientation="vertical"
     tools:context="com.maxpayneman.project_movie.View.CadastroMainActivity">
 
-    <EditText
-        android:id="@+id/edit_nome"
-        android:layout_width="300dp"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:hint="Nome completo:"
-        android:textColorHint="#A0A0FF"
-        android:textSize="25dp"
-        android:textColor="#9494EC"
-        android:layout_marginBottom="10dp"
-        ></EditText>
+    <ImageView
 
-    <EditText
-        android:id="@+id/edit_user"
-        android:layout_width="300dp"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:hint="Nome de usuario:"
-        android:textColorHint="#A0A0FF"
-        android:textColor="#9494EC"
-        android:textSize="24dp"
-        android:layout_marginBottom="10dp"
-        ></EditText>
-
-    <EditText
-        android:id="@+id/edit_idade"
-        android:layout_width="300dp"
-        android:gravity="center"
-        android:textColor="#9494EC"
-        android:layout_height="wrap_content"
-        android:hint="Idade:"
-        android:layout_marginBottom="10dp"
-        android:textColorHint="#A0A0FF"
-        android:textSize="25dp"
-        android:inputType="number"
-        ></EditText>
-
-    <EditText
-        android:id="@+id/edit_senha"
-        android:layout_width="300dp"
-        android:gravity="center"
-        android:layout_height="wrap_content"
-        android:hint="Senha:"
-        android:textColor="#9494EC"
-        android:textColorHint="#A0A0FF"
-        android:layout_marginBottom="20dp"
-        android:inputType="textPassword"
-        android:textSize="25dp"
-        ></EditText>
+        android:layout_width="match_parent"
+        android:layout_height="209dp"
+        android:paddingBottom="10dp"
+        android:src="@drawable/img" />
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        >
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/edit_nome"
+            style="@style/edit_text"
+
+            android:hint="Nome"
+            ></EditText>
+
+        <EditText
+            android:id="@+id/edit_idade"
+            style="@style/edit_text"
+            android:hint="Idade"
+            ></EditText>
+
+        <EditText
+            android:drawableRight="@drawable/ic_user"
+            android:id="@+id/edit_user"
+            style="@style/edit_text"
+            android:hint="Usuario"
+            ></EditText>
 
 
-    <Button
-        android:id="@+id/button_voltar"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:text="Voltar"
-        android:textSize="20dp"
-        android:layout_marginStart="20dp"
+        <EditText
+            android:drawableRight="@drawable/ic_eye"
+            android:id="@+id/edit_senha"
+            style="@style/edit_text"
+            android:hint="Senha"
+            android:layout_marginBottom="30dp"
+            ></EditText>
 
-        ></Button>
 
-    <Button
-        android:id="@+id/button_realizarCadastro"
-        android:layout_width="150dp"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="15dp"
-        android:text="Cadastrar"
-        android:textSize="20dp"
-
-        ></Button>
 
     </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/Button"
+        android:textColor="@color/white"
+        android:id="@+id/button_realizarCadastro"
+        android:layout_width="180dp"
+        android:text="Cadastrar"
+        android:textSize="20dp"
+        ></androidx.appcompat.widget.AppCompatButton>
+
+    <androidx.appcompat.widget.AppCompatButton
+        style="@style/Button"
+        android:textColor="@color/white"
+        android:id="@+id/button_voltar"
+        android:layout_width="100dp"
+
+        android:text="Voltar"
+        android:textSize="20dp"
+
+        tools:layout_conversion_absoluteHeight="48dp"
+        tools:layout_conversion_absoluteWidth="150dp"
+        tools:layout_editor_absoluteX="58dp"
+        tools:layout_editor_absoluteY="589dp"></androidx.appcompat.widget.AppCompatButton>
+
 
 </LinearLayout>

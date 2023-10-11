@@ -1,4 +1,4 @@
-package com.maxpayneman.project_movie.Controller
+package com.maxpayneman.project_movie.ViewModel
 
 import android.content.Context
 import android.content.Intent

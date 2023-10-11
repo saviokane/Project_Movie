@@ -5,7 +5,7 @@ import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.maxpayneman.aulayt_8.databinding.ActivityMainBinding
-import com.maxpayneman.project_movie.Controller.UsuarioController
+import com.maxpayneman.project_movie.ViewModel.UsuarioController
 
 
 class LoginMainActivity : AppCompatActivity() {
@@ -25,12 +25,11 @@ class LoginMainActivity : AppCompatActivity() {
             val user = binding.user.text.toString();
             val senha = binding.senha.text.toString();
 
-
             usuario.Validação(context,user,senha);
 
         }
 
-        binding.criarConta.setOnClickListener{
+        binding.criarConta.setOnClickListener(){
             startActivity(Intent(this, CadastroMainActivity::class.java))
         }
 

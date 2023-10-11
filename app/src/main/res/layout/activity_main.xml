@@ -12,37 +12,26 @@
 
     <ImageView
         android:layout_width="367dp"
-        android:layout_height="88dp"
+        android:layout_height="148dp"
         android:src="@drawable/img" />
 
 
     <EditText
         android:id="@+id/user"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:background="@color/white"
-        android:gravity="center"
-        android:hint="Insira sua senha"
-        android:textColorHint="#404447"
-        android:textSize="22dp">
+        style="@style/edit_text"
+        android:drawableRight="@drawable/ic_user"
+        android:hint="Usuario">
 
     </EditText>
-
 
     <EditText
         android:id="@+id/senha"
-        android:layout_width="250dp"
-        android:layout_height="wrap_content"
-        android:background="@color/white"
-        android:gravity="center"
-        android:hint="Insira sua senha"
-        android:inputType="textPassword"
-        android:textColor="#00FF2A"
-        android:textColorHint="#404447"
-        android:textSize="22dp">
+        style="@style/edit_text"
+        android:drawableRight="@drawable/ic_eye"
+        android:hint="Senha">
 
     </EditText>
+
 
     <LinearLayout
         android:layout_width="wrap_content"
@@ -70,27 +59,22 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:layout_margin="0dp">
+        android:orientation="horizontal">
 
-
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/Button"
+            android:layout_marginEnd="5dp"
+            android:textColor="@color/white"
             android:id="@+id/criar_conta"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_margin="10dp"
-            android:layout_marginTop="30sp"
             android:text="Criar conta"
-            android:textSize="16dp"></Button>
+            ></androidx.appcompat.widget.AppCompatButton>
 
-        <Button
+        <androidx.appcompat.widget.AppCompatButton
+            style="@style/Button"
+            android:layout_marginEnd="5dp"
+            android:textColor="@color/white"
             android:id="@+id/button_logar"
-            android:layout_width="150dp"
-            android:layout_height="60dp"
-            android:layout_margin="10dp"
-            android:layout_marginTop="30sp"
-            android:text="Logar"
-            android:textSize="16dp"></Button>
+            android:text="Logar"></androidx.appcompat.widget.AppCompatButton>
 
 
     </LinearLayout>

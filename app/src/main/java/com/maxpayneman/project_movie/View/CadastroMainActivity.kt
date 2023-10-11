@@ -5,7 +5,7 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.maxpayneman.aulayt_8.databinding.ActivityCadastroMainBinding
-import com.maxpayneman.project_movie.Controller.UsuarioController
+import com.maxpayneman.project_movie.ViewModel.UsuarioController
 
 class CadastroMainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCadastroMainBinding;
@@ -27,11 +27,12 @@ class CadastroMainActivity : AppCompatActivity() {
 
             usuario.Registrar(nome,senha, idade, usuarios);
 
-            startActivity(Intent(this, InicioMainActivity::class.java))
+            startActivity(Intent(this, LoginMainActivity::class.java))
 
             Toast.makeText(this, "Cadastro realizado com sucesso ", Toast.LENGTH_SHORT).show()
             finish()//apartir daqui ele limpa o cache e retorna a margin 0
         }
+
         binding.buttonVoltar.setOnClickListener {
 
             finish();
