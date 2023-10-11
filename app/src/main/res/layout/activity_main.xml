@@ -63,14 +63,18 @@
 
         <androidx.appcompat.widget.AppCompatButton
             style="@style/Button"
+            android:layout_margin="20dp"
             android:layout_marginEnd="5dp"
             android:textColor="@color/white"
             android:id="@+id/criar_conta"
             android:text="Criar conta"
+            android:padding="10dp"
             ></androidx.appcompat.widget.AppCompatButton>
 
         <androidx.appcompat.widget.AppCompatButton
             style="@style/Button"
+            android:padding="10dp"
+            android:layout_margin="20dp"
             android:layout_marginEnd="5dp"
             android:textColor="@color/white"
             android:id="@+id/button_logar"
