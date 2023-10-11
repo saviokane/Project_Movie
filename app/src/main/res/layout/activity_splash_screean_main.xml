@@ -6,17 +6,14 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:gravity="center"
-    android:backgroundTint="#0E5706"
+    android:backgroundTint="#000000"
     android:background="@color/black"
     tools:context="com.maxpayneman.project_movie.View.SplashScreeanMainActivity">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:textSize="35dp"
-        android:textColor="#00F7FF"
-        android:text="[Project Movie]"
-        android:gravity="center">
-    </TextView>
+    <ImageView
+        android:layout_width="245dp"
+        android:layout_height="295dp"
+        android:src="@drawable/img" />
+
 
 </LinearLayout>

@@ -24,7 +24,7 @@ class LoginMainActivity : AppCompatActivity() {
             val user = binding.user.text.toString();
             val senha = binding.senha.text.toString();
 
-            binding.textTeste2.text =  usuario.Mostrar();
+
             usuario.Validação(context,user,senha);
 
         }
