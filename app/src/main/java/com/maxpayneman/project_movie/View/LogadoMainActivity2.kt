@@ -17,7 +17,7 @@ class LogadoMainActivity2 : AppCompatActivity() {
     Handler(Looper.getMainLooper()).postDelayed({
         startActivity(Intent(this, FilmesSearchMainActivity::class.java));
 
-    },2000)
+    },1000)
 
     }
 }

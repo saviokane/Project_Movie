@@ -1,8 +1,10 @@
 package com.maxpayneman.project_movie.View
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import com.bumptech.glide.Glide
 import com.maxpayneman.aulayt_8.databinding.ActivityFilmesSearchMainBinding
 import com.maxpayneman.project_movie.Model.Filme
 import kotlinx.coroutines.CoroutineScope
@@ -15,9 +17,8 @@ import org.json.JSONObject
 class FilmesSearchMainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFilmesSearchMainBinding
 
-
     private var listaFilmes = ArrayList<Filme>()
-
+    private  var pos =-1;
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityFilmesSearchMainBinding.inflate(layoutInflater)
@@ -86,11 +87,29 @@ class FilmesSearchMainActivity : AppCompatActivity() {
                             val imagemUrl = "https://image.tmdb.org/t/p/w500$imagemPath"
 
                             // Adiciona o filme à lista com o URL da imagem
-                            listaFilmes.add(Filme(titulo, ano, imagemUrl))
+                            listaFilmes.add(Filme(titulo, ano, imagemUrl,descricao))
+
                         }
                         runOnUiThread {
                             adapter.notifyDataSetChanged()
                         }
+                        binding.listView.setOnItemClickListener { _, _, position, _ ->
+
+                            val nome = listaFilmes.get(position).nome
+                            val data = listaFilmes.get(position).Data
+                            val img = listaFilmes.get(position).imageUrl
+                            val descricao = listaFilmes.get(position).descricao
+                            pos = position;
+
+                            val i = Intent(applicationContext, FilmeSelecionadoMainActivity::class.java)
+
+                            i.putExtra("filmename", nome)
+                            i.putExtra("filmedata", data)
+                            i.putExtra("filmeimg", img)
+                            i.putExtra("filmedesc", descricao)
+                            startActivity(i)
+                        }
+
                     }
 
                 }

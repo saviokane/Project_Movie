@@ -16,7 +16,7 @@ class SplashScreeanMainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root);
 
-        val mediaPLayer = MediaPlayer.create(applicationContext, R.raw.toque)
+        val mediaPLayer = MediaPlayer.create(applicationContext, R.raw.start)
         mediaPLayer.start()
         Handler(Looper.getMainLooper()).postDelayed({
 

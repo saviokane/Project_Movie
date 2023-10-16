@@ -15,7 +15,7 @@
         android:layout_height="wrap_content"
         android:textSize="30dp"
         android:textColor="#BECC00"
-        android:text="Logado com sucesso!\n Resto da aplicação...!"
+        android:text="==Logado com sucesso=="
         ></TextView>
 
 </LinearLayout>

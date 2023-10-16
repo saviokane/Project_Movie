@@ -18,7 +18,7 @@ class LoginMainActivity : AppCompatActivity() {
         var usuario  = UsuarioController.getInstance();
         val context : Context = this;
 //
-//        usuario.Registrar("1", "2",10, "sd");
+     usuario.Registrar("", "",0, "");
 
 
         binding.buttonLogar.setOnClickListener {

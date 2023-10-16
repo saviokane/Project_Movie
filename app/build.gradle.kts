@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.maxpayneman.aulayt_8"
-    compileSdk = 33
+    compileSdk = 34
 
     defaultConfig {
         applicationId = "com.maxpayneman.aulayt_8"
@@ -40,7 +40,8 @@ android {
 
 dependencies {
 
-
+    implementation ("com.github.bumptech.glide:glide:4.12.0")
+    annotationProcessor ("com.github.bumptech.glide:compiler:4.12.0")
     implementation("androidx.core:core-ktx:1.9.0")
     implementation("com.squareup.okhttp3:okhttp:4.9.1")
     implementation("androidx.appcompat:appcompat:1.6.1")
