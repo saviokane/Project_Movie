@@ -50,7 +50,6 @@
                 android:layout_height="match_parent"
                 android:buttonTintMode="multiply"
 
-
         ></CheckBox>
 
         <TextView
