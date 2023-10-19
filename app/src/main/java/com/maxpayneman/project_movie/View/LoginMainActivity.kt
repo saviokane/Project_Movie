@@ -3,10 +3,14 @@ package com.maxpayneman.project_movie.View
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.maxpayneman.aulayt_8.R
 import com.maxpayneman.aulayt_8.databinding.ActivityMainBinding
 import com.maxpayneman.project_movie.ViewModel.UsuarioController
 import com.maxpayneman.project_movie.View.FilmesSearchMainActivity
@@ -21,11 +25,11 @@ class LoginMainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         binding.buttonLogar.setOnClickListener {
-            val user = binding.user.text.toString()
+            val email = binding.email.text.toString()
             val senha = binding.senha.text.toString()
 
-            if (user.isNotEmpty() && senha.isNotEmpty()) {
-                signIn(user, senha)
+            if (email.isNotEmpty() && senha.isNotEmpty()) {
+                signIn(email, senha)
             } else {
                 Toast.makeText(this, "Preencha o usuário e senha", Toast.LENGTH_SHORT).show()
             }
@@ -37,18 +41,23 @@ class LoginMainActivity : AppCompatActivity() {
     }
 
     private fun signIn(email: String, password: String) {
-        auth.signInWithEmailAndPassword(email, password)
-            .addOnCompleteListener(this) { task ->
+        auth.signInWithEmailAndPassword(email, password).addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     // Login bem-sucedido, redirecione para a próxima atividade
                     val user = auth.currentUser
                     Toast.makeText(this, "Login bem-sucedido !!!", Toast.LENGTH_SHORT).show()
                     updateUI(user)
-                    startActivity(Intent(this, FilmesSearchMainActivity::class.java))
+                    startActivity(Intent(this, LogadoMainActivity2::class.java))
                 } else {
                     // Se o login falhar, exiba uma mensagem de erro
                     Log.w(TAG, "signInWithEmail:failure", task.exception)
-                    Toast.makeText(this, "Falha na autenticação.", Toast.LENGTH_SHORT).show()
+                    val snackbar = Snackbar.make(binding.root,"Falha na autenticação, verifique o email ou senha",Snackbar.LENGTH_SHORT)
+
+                    val textView = snackbar.view.findViewById<TextView>(com.google.android.material.R.id.snackbar_text)
+                    textView.setTextColor(ContextCompat.getColor(this, R.color.orange))
+
+                    snackbar.show()
+
                     updateUI(null)
                 }
             }

@@ -6,28 +6,52 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
-        android:background="@drawable/button"
-        android:gravity="center"
+        android:background="@drawable/search"
         tools:context="com.maxpayneman.project_movie.View.FilmesSearchMainActivity">
 
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="start">
+    <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:text="Buscar Filmes"
+            android:textSize="20dp"
+            android:gravity="center"
+            android:textColor="#FF9800"
+            android:background="@drawable/background"
+            android:layout_marginTop="0dp"
+    >
+
+    </TextView>
+
+    </LinearLayout>
     <EditText
             android:id="@+id/edit_filme_name"
             android:layout_marginTop="50dp"
             android:layout_width="300dp"
+            android:textColor="#D38000"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:textSize="25dp"
             android:layout_height="wrap_content"/>
 
     <Button
+
             android:id="@+id/buscar_filme"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-    android:text="buscar">
-
-    </Button>
-
-    <TextView
-            android:id="@+id/textview"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"/>
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:text="Buscar"
+            android:textColor="@color/black"
+            android:layout_marginTop="10dp"
+            android:textSize="20dp"
+            android:backgroundTint="#926205"
+            />
 
     <LinearLayout
             android:layout_width="wrap_content"
@@ -37,7 +61,6 @@
                 android:id="@+id/imgview"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-
                    ></ImageView>
 
         <ListView
@@ -57,7 +80,9 @@
                 android:id="@+id/imagem_filme"
                 android:layout_width="100dp"
                 android:layout_height="100dp"
-                android:scaleType="centerCrop" />
+                android:scaleType="centerCrop"
+
+        />
 
     </LinearLayout>
 

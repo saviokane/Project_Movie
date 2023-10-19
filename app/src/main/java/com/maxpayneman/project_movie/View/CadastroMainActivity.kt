@@ -1,5 +1,6 @@
 package com.maxpayneman.project_movie.View
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
@@ -35,41 +36,36 @@ class CadastroMainActivity : AppCompatActivity() {
         }
 
         binding.buttonRealizarCadastro.setOnClickListener {
+
             val nome = binding.editNome.text.toString()
             val senha = binding.editSenha.text.toString()
             val email = binding.editUser.text.toString()
             val idade = binding.editIdade.text.toString().toInt()
 
-            if (nome.isEmpty() || senha.isEmpty() || email.isEmpty()) {
+            if (nome.isEmpty() || senha.isEmpty() || email.isEmpty() || idade == 0) {
                 Toast.makeText(this, "Preencha todos os campos !!!", Toast.LENGTH_SHORT).show()
             } else {
 
-                auth.createUserWithEmailAndPassword(email, senha)
-                    .addOnCompleteListener(this) { task ->
+                auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener(this) { task ->
                         if (task.isSuccessful) {
                             // Registro bem-sucedido, atualize a interface do usuário
 
                             //val snackbar = Snackbar.make(,"Cadastro realizado com sucesso !!!",Snackbar.LENGTH_SHORT)
                             //snackbar.setBackgroundTint(Color.GREEN)
                             //snackbar.show()
-                            Toast.makeText(
-                                baseContext,
-                                "Usuario Cadastrado com sucesso !!!",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            Toast.makeText(baseContext,"Usuario Cadastrado com sucesso !!!", Toast.LENGTH_SHORT).show()
+
                             updateUI(null)
                             val user = auth.currentUser
                             updateUI(user)
                         } else {
                             // Se o registro falhar, exiba uma mensagem de erro
-                            Toast.makeText(
-                                baseContext,
-                                "Falha na autenticação.",
-                                Toast.LENGTH_SHORT
-                            ).show()
+                            Toast.makeText(baseContext,"Falha na autenticação.",Toast.LENGTH_SHORT).show()
                             updateUI(null)
                         }
                     }
+                //indo para outra tela após cadastro realizado com sucesso!
+                startActivity(Intent(applicationContext, LoginMainActivity::class.java))
             }
         }
 
@@ -82,18 +78,15 @@ class CadastroMainActivity : AppCompatActivity() {
         super.onStart()
         // Verifique se o usuário está logado e atualize a interface do usuário em conformidade
         val currentUser = auth.currentUser
-        if (currentUser != null) {
-            reload()
-        }
+
     }
 
     private fun reload() {
         val user = auth.currentUser
 
-        user?.reload()
-            ?.addOnCompleteListener { task ->
+        user?.reload()?.addOnCompleteListener { task ->
                 if (task.isSuccessful) {
-                    Toast.makeText(this, "Usuário delogado com sucesso", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Usio delogado com sucesso", Toast.LENGTH_SHORT).show()
                     updateUI(user)
                 } else {
                     Toast.makeText(this, "Falha ao recarregar o usuário", Toast.LENGTH_SHORT).show()

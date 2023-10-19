@@ -18,10 +18,10 @@
 
 
     <EditText
-        android:id="@+id/user"
+        android:id="@+id/email"
         style="@style/edit_text"
         android:drawableRight="@drawable/ic_user"
-        android:hint="Usuario">
+        android:hint="E-mail">
 
     </EditText>
 
