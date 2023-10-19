@@ -8,7 +8,7 @@
     import com.maxpayneman.project_movie.Model.FilmeLista
 
     class MeusFilmesMainActivity : AppCompatActivity() {
-
+    
         private var  minhalista = mutableListOf<FilmeLista>()
 
         private lateinit var  binding: ActivityMeusFilmesMainBinding

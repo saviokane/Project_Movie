@@ -39,7 +39,7 @@
             android:drawableRight="@drawable/ic_user"
             android:id="@+id/edit_user"
             style="@style/edit_text"
-            android:hint="Usuario"
+            android:hint="Email"
             ></EditText>
 
 
