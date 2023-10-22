@@ -17,17 +17,21 @@
         android:paddingBottom="10dp"
         android:src="@drawable/img" />
 
+
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical">
 
+
+
         <EditText
             android:id="@+id/edit_nome"
             style="@style/edit_text"
-
             android:hint="Nome"
             ></EditText>
+
 
         <EditText
             android:id="@+id/edit_idade"

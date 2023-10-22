@@ -18,9 +18,16 @@ class SplashScreeanMainActivity : AppCompatActivity() {
 
         val mediaPLayer = MediaPlayer.create(applicationContext, R.raw.start)
         mediaPLayer.start()
+        val handler = Handler()
+
+        handler.postDelayed({
+            mediaPLayer.stop()
+        },  3000)
+
         Handler(Looper.getMainLooper()).postDelayed({
 
-            startActivity(Intent(this, LoginMainActivity::class.java));
+
+            startActivity(Intent(this, UserAtualMainActivity::class.java));
             finish();
         }, 3000);
 

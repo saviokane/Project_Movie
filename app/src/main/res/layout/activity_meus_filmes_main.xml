@@ -4,31 +4,69 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:orientation="vertical"
-    android:gravity="center"
+
     tools:context="com.maxpayneman.project_movie.View.MeusFilmesMainActivity">
+
 
     <TextView
         android:id="@+id/valor"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="oi"
-        android:gravity="center">
+        android:textSize="30dp"
+        android:textColor="#FF9800"
+        android:layout_gravity="center_horizontal">
 
         </TextView>
+    <TextView
+            android:id="@+id/film"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sua Lista de Filmes"
+            android:textSize="15dp"
+            android:textColor="#FF9800"
+            android:layout_gravity="center_horizontal">
 
-    <LinearLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+    </TextView>
 
-    <ListView
-        android:id="@+id/minhalistafilm"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
 
-    </ListView>
+    <RelativeLayout
+            xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
 
-    </LinearLayout>
+        <!-- Sua ListView -->
+        <ListView
+                android:id="@+id/minhalistafilm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/toolbar" />
+
+        <!-- Sua Toolbar -->
+        <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:gravity="center"
+        >
+        <androidx.appcompat.widget.Toolbar
+                android:id="@+id/toolbar"
+                android:layout_width="65dp"
+                android:layout_height="?attr/actionBarSize"
+                app:menu="@menu/menu_main"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/button_mais"
+                android:paddingEnd="18dp"
+                android:elevation="4dp"
+                app:titleTextColor="#00FFE9"
+                app:theme="@style/CustomToolbarStyle"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                android:layout_alignParentTop="true" />
+        </LinearLayout>
+    </RelativeLayout>
 
 
 

@@ -14,9 +14,11 @@ class LogadoMainActivity2 : AppCompatActivity() {
         binding = ActivityLogadoMain2Binding.inflate(layoutInflater)
         setContentView(binding.root)
 
-    Handler(Looper.getMainLooper()).postDelayed({
-        startActivity(Intent(this, FilmesSearchMainActivity::class.java));
 
+    Handler(Looper.getMainLooper()).postDelayed({
+        val i2 = Intent(this, MeusFilmesMainActivity::class.java)
+        startActivity(i2)
+        finish()
     },1000)
 
     }

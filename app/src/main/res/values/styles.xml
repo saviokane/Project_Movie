@@ -28,4 +28,16 @@
         <item name="android:layout_marginTop">15dp</item>
         <item name="android:background">@drawable/background</item>
     </style>
+    <style name="CustomToolbarStyle" parent="Widget.AppCompat.Light.ActionBar.Solid.Inverse">
+        <item name="android:textColor">#764D01</item>
+        <item name="android:itemBackground">#061031</item>
+        <item name="android:radius">50dp</item>
+        <!-- Define a cor do texto para laranja (#FFA500) -->
+    </style>
+
+    <style name="Estilo_Texto_Lista">
+        <item name="android:textColor">#FFDB59</item>
+        <!-- Outros atributos de estilo, se necessário -->
+    </style>
+
 </resources>

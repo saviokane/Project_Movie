@@ -25,10 +25,6 @@ class FilmesSearchMainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
 
-
-
-
-
         val adapter = ArrayAdapter(this, android.R.layout.simple_list_item_1, listaFilmes)
 
         binding.listView.adapter = adapter;

@@ -9,30 +9,25 @@ import androidx.appcompat.app.AppCompatActivity
 import com.google.android.material.snackbar.Snackbar
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.firestore.FirebaseFirestore
 import com.maxpayneman.aulayt_8.databinding.ActivityCadastroMainBinding
-import com.maxpayneman.project_movie.ViewModel.UsuarioController
+
 
 class CadastroMainActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCadastroMainBinding
     private lateinit var auth: FirebaseAuth
-
+    private  val db = FirebaseFirestore.getInstance()
+    private val user = FirebaseAuth.getInstance().currentUser
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityCadastroMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
         auth = FirebaseAuth.getInstance()
 
-        val usuario = UsuarioController.getInstance()
+        binding.buttonVoltar.setOnClickListener {
+            finish()
 
-        fun reload() {
-            auth.currentUser!!.reload().addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(this, "Usuário recarregado com sucesso", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(this, "Falha ao recarregar o usuário", Toast.LENGTH_SHORT).show()
-                }
-            }
         }
 
         binding.buttonRealizarCadastro.setOnClickListener {
@@ -47,53 +42,36 @@ class CadastroMainActivity : AppCompatActivity() {
             } else {
 
                 auth.createUserWithEmailAndPassword(email, senha).addOnCompleteListener(this) { task ->
-                        if (task.isSuccessful) {
-                            // Registro bem-sucedido, atualize a interface do usuário
+                    if (task.isSuccessful) {
 
-                            //val snackbar = Snackbar.make(,"Cadastro realizado com sucesso !!!",Snackbar.LENGTH_SHORT)
-                            //snackbar.setBackgroundTint(Color.GREEN)
-                            //snackbar.show()
-                            Toast.makeText(baseContext,"Usuario Cadastrado com sucesso !!!", Toast.LENGTH_SHORT).show()
+                        Toast.makeText(baseContext,"Usuario Cadastrado com sucesso!", Toast.LENGTH_SHORT).show()
 
-                            updateUI(null)
-                            val user = auth.currentUser
-                            updateUI(user)
-                        } else {
-                            // Se o registro falhar, exiba uma mensagem de erro
-                            Toast.makeText(baseContext,"Falha na autenticação.",Toast.LENGTH_SHORT).show()
-                            updateUI(null)
-                        }
+                        updateUI(null)
+                        val user = auth.currentUser
+                        updateUI(user)
+                        val uid = user?.uid
+
+                        val users = hashMapOf(
+                            "nome" to "${nome}",
+                            "idade" to "${idade}",
+                            "email" to "${email}",
+                            "senha" to "${senha}"
+                        )
+                        uid?.let{
+                            db.collection("Usuarios").document(it).collection("users").document("Usuario")
+                                .set(users).addOnCompleteListener {
+                                    Log.d("db", "Sucesso ao realizar cadastro!")
+                                }
+                        startActivity(Intent(this, LoginMainActivity::class.java))
                     }
-                //indo para outra tela após cadastro realizado com sucesso!
-                startActivity(Intent(applicationContext, LoginMainActivity::class.java))
-            }
-        }
+                }
 
-        binding.buttonVoltar.setOnClickListener {
-            finish()
-        }
-    }
-
-    override fun onStart() {
-        super.onStart()
-        // Verifique se o usuário está logado e atualize a interface do usuário em conformidade
-        val currentUser = auth.currentUser
-
-    }
-
-    private fun reload() {
-        val user = auth.currentUser
-
-        user?.reload()?.addOnCompleteListener { task ->
-                if (task.isSuccessful) {
-                    Toast.makeText(this, "Usio delogado com sucesso", Toast.LENGTH_SHORT).show()
-                    updateUI(user)
-                } else {
-                    Toast.makeText(this, "Falha ao recarregar o usuário", Toast.LENGTH_SHORT).show()
-                    updateUI(null)
                 }
             }
+        }
     }
+
+
 
 
     private fun updateUI(user: FirebaseUser?) {
