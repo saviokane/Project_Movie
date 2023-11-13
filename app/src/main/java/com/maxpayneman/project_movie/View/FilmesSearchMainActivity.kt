@@ -83,7 +83,7 @@ class FilmesSearchMainActivity : AppCompatActivity() {
                             val imagemUrl = "https://image.tmdb.org/t/p/w500$imagemPath"
 
                             // Adiciona o filme à lista com o URL da imagem
-                            listaFilmes.add(Filme(titulo, ano, imagemUrl,descricao))
+                            listaFilmes.add(Filme(id, titulo, ano, imagemUrl,descricao))
 
                         }
                         runOnUiThread {

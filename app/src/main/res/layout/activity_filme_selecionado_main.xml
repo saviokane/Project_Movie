@@ -24,7 +24,7 @@
             android:layout_gravity="center">
 
         <TextView
-                android:id="@+id/nome_filme"
+                android:id="@+id/nomeFilme"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="25dp"
@@ -94,7 +94,7 @@
 
             <!-- O conteúdo que você deseja dentro do ScrollView vai aqui -->
             <TextView
-                    android:id="@+id/descricao"
+                    android:id="@+id/descricaoFilme"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
