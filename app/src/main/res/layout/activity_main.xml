@@ -28,6 +28,7 @@
     <EditText
         android:id="@+id/senha"
         style="@style/edit_text"
+        android:inputType="textPassword"
         android:drawableRight="@drawable/ic_eye"
         android:hint="Senha">
 
@@ -40,20 +41,6 @@
         android:layout_margin="12dp"
         android:orientation="horizontal">
 
-        <ImageView
-            android:layout_width="81dp"
-            android:layout_height="39dp"
-            android:src="@drawable/google" />
-
-        <ImageView
-            android:layout_width="81dp"
-            android:layout_height="39dp"
-            android:src="@drawable/facebook" />
-
-        <ImageView
-            android:layout_width="81dp"
-            android:layout_height="39dp"
-            android:src="@drawable/ios" />
 
     </LinearLayout>
 

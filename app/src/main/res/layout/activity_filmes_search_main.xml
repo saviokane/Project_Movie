@@ -9,6 +9,8 @@
         android:background="@drawable/search"
         tools:context="com.maxpayneman.project_movie.View.FilmesSearchMainActivity">
 
+
+
     <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -29,9 +31,20 @@
     </TextView>
 
     </LinearLayout>
+
+
+    <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/back"
+            style="@style/Button_back"
+            android:layout_width="55dp"
+            android:layout_height="60dp"
+            android:layout_marginLeft="15dp"
+    ></androidx.appcompat.widget.AppCompatButton>
+
+
     <EditText
             android:id="@+id/edit_filme_name"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="20dp"
             android:layout_width="300dp"
             android:textColor="#D38000"
             android:layout_gravity="center"

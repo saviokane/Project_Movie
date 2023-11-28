@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
-import com.bumptech.glide.Glide
 import com.maxpayneman.aulayt_8.databinding.ActivityFilmesSearchMainBinding
 import com.maxpayneman.project_movie.Model.Filme
 import kotlinx.coroutines.CoroutineScope
@@ -16,7 +15,7 @@ import org.json.JSONObject
 
 class FilmesSearchMainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityFilmesSearchMainBinding
-
+    private val Api_Key = " eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMWYwOTM0YTNlM2M2NDk3ZDM2NjdhZjc5ZWQ1MDI4YiIsInN1YiI6IjY1MWNiNDQ1OTY3Y2M3MzQyNWYxZjYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LS9fUPTf5XHelcwXoM_6PeD92B9htZJluem8u8QBCtI"
     private var listaFilmes = ArrayList<Filme>()
     private  var pos =-1;
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -43,7 +42,7 @@ class FilmesSearchMainActivity : AppCompatActivity() {
                     .addHeader("accept", "application/json")
                     .addHeader(
                         "Authorization",
-                        "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMWYwOTM0YTNlM2M2NDk3ZDM2NjdhZjc5ZWQ1MDI4YiIsInN1YiI6IjY1MWNiNDQ1OTY3Y2M3MzQyNWYxZjYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LS9fUPTf5XHelcwXoM_6PeD92B9htZJluem8u8QBCtI"
+                        "Bearer $Api_Key"
                     )
                     .build()
 
@@ -69,9 +68,10 @@ class FilmesSearchMainActivity : AppCompatActivity() {
                             .addHeader("accept", "application/json")
                             .addHeader(
                                 "Authorization",
-                                "Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiJhMWYwOTM0YTNlM2M2NDk3ZDM2NjdhZjc5ZWQ1MDI4YiIsInN1YiI6IjY1MWNiNDQ1OTY3Y2M3MzQyNWYxZjYxMiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.LS9fUPTf5XHelcwXoM_6PeD92B9htZJluem8u8QBCtI"
+                                "Bearer $Api_Key"
                             )
                             .build()
+
 
 
                         val detalhesResponse = client.newCall(detalhesRequest).execute()
@@ -104,12 +104,16 @@ class FilmesSearchMainActivity : AppCompatActivity() {
                             i.putExtra("filmeimg", img)
                             i.putExtra("filmedesc", descricao)
                             startActivity(i)
+
                         }
 
                     }
 
                 }
             }
+        }
+        binding.back.setOnClickListener {
+            finish()
         }
     }
 }

@@ -1,92 +1,71 @@
     package com.maxpayneman.project_movie.View
 
-    import MeuAdaptador
+
+    import ItemClickListener
     import android.content.Intent
-    import android.graphics.Color
     import androidx.appcompat.app.AppCompatActivity
     import android.os.Bundle
     import android.util.Log
     import android.view.Menu
-    import android.widget.ArrayAdapter
     import android.widget.Toast
-    import androidx.core.graphics.toColorInt
+    import androidx.lifecycle.Observer
+    import androidx.lifecycle.ViewModelProvider
     import com.google.firebase.auth.FirebaseAuth
-    import com.google.firebase.firestore.*
     import com.google.firebase.firestore.FirebaseFirestore
     import com.maxpayneman.aulayt_8.R
     import com.maxpayneman.aulayt_8.databinding.ActivityMeusFilmesMainBinding
+    import com.maxpayneman.project_movie.Model.Adaptador.MeuAdaptador
     import com.maxpayneman.project_movie.Model.FilmeLista
-    import java.util.*
-    import com.google.firebase.firestore.DocumentSnapshot
-    import com.google.firebase.firestore.EventListener
-    import com.google.firebase.firestore.FirebaseFirestoreException
-    import com.maxpayneman.project_movie.Model.Usuario
-    import com.maxpayneman.project_movie.Model.UsuarioModel
+    import com.maxpayneman.project_movie.ViewModel.MeusFilmesViewModel
 
 
     class MeusFilmesMainActivity : AppCompatActivity() {
 
-        private var  minhalista = mutableListOf<FilmeLista>()
         private val user = FirebaseAuth.getInstance().currentUser
         private val db = FirebaseFirestore.getInstance()
-        private lateinit var  binding: ActivityMeusFilmesMainBinding
+        private lateinit var binding: ActivityMeusFilmesMainBinding
+        private val viewModel: MeusFilmesViewModel by lazy {
+            ViewModelProvider(this).get(MeusFilmesViewModel::class.java)
+        }
+
         override fun onCreate(savedInstanceState: Bundle?) {
             super.onCreate(savedInstanceState)
             binding = ActivityMeusFilmesMainBinding.inflate(layoutInflater)
             setContentView(binding.root)
 
+            val meuAdaptador = MeuAdaptador(
+                applicationContext,
+                mutableListOf(),
+                viewModel,
+                object : ItemClickListener {
+                    override fun onItemClicked(filme: FilmeLista) {
+                        val nome = filme.nome
+                        val img = filme.imgUrl
+                        val descricao = filme.sinopse
 
-
-
-            val meuAdaptador = MeuAdaptador(applicationContext, minhalista)
+                        val i = Intent(applicationContext, FilmeSelecionadoMainActivity::class.java)
+                        i.putExtra("filmename", nome)
+                        i.putExtra("filmeimg", img)
+                        i.putExtra("filmedesc", descricao)
+                        startActivity(i)
+                    }
+                }
+            )
             binding.minhalistafilm.adapter = meuAdaptador
 
 
-            //lista de imagens do meu banco salvos !
-            user?.uid?.let { uid ->
-                db.collection("FilmesUsuario").document(uid).collection("MeusFilmes")
-                    .get()
-                    .addOnSuccessListener { querySnapshot  ->
-                        for (document in querySnapshot) {
-                            val nomeFilme = document.getString("nome").toString()
-                            val imgURl = document.getString("imagUrl").toString()
-                            minhalista.add(FilmeLista(nomeFilme,imgURl))
-                            meuAdaptador.notifyDataSetChanged()
-                        }
+            viewModel.minhaLista.observe(this, Observer { listaFilmes ->
+                meuAdaptador.updateLista(listaFilmes)
+            })
 
-                    }
-                    .addOnFailureListener { exception ->
-                        Log.d("db", "Erro ao obter o documento: $exception")
-                    }
-            }
-
-            val uid = user?.uid
-            binding.valor.text = "Carregando..." // Pode ser um texto temporário enquanto os dados são carregados
-
-
-
-//aqui a região onde em tempo real e exibido o nick do usuario no app
-            user?.uid?.let { uid ->
-                db.collection("Usuarios").document(uid).collection("users").document("Usuario")
-                    .get()
-                    .addOnSuccessListener { document ->
-                        if (document != null) {
-                            val nomeUsuario = document.getString("nome")
-                            binding.valor.text = nomeUsuario
-                        } else {
-                            Log.d("db", "Documento não encontrado")
-                        }
-                    }
-                    .addOnFailureListener { exception ->
-                        Log.d("db", "Erro ao obter o documento: $exception")
-                    }
-            }
+            viewModel.nomeUsuario.observe(this, Observer { nomeUsuario ->
+                binding.valor.text = nomeUsuario
+            })
 
 
 
 
 
-//Local para deslogar o usuario !
             binding.toolbar.setOnMenuItemClickListener { menuItem ->
                 when (menuItem.itemId) {
                     R.id.deslogar -> {
@@ -127,5 +106,6 @@
             menuInflater.inflate(R.menu.menu_main, menu)
             return true
         }
+
 
     }

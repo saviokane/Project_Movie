@@ -52,6 +52,7 @@
             android:id="@+id/edit_senha"
             style="@style/edit_text"
             android:hint="Senha"
+            android:inputType="textPassword"
             android:layout_marginBottom="30dp"
             ></EditText>
 

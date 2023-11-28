@@ -9,14 +9,34 @@
         android:background="@drawable/background"
         tools:context="com.maxpayneman.project_movie.View.FilmeSelecionadoMainActivity">
 
+
+    <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="20dp"
+
+
+    >
+
+        <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/back"
+                style="@style/Button_back"
+                android:layout_width="55dp"
+                android:layout_height="60dp"
+   ></androidx.appcompat.widget.AppCompatButton>
+
+
+
+    </LinearLayout>
+
+
     <ImageView
             android:id="@+id/imageview"
             android:layout_width="400dp"
             android:layout_height="350dp"
             android:layout_gravity="center"
-            android:layout_marginTop="30dp"
-    ></ImageView>
 
+    ></ImageView>
 
     <LinearLayout
             android:layout_width="wrap_content"
@@ -29,7 +49,7 @@
                 android:layout_height="wrap_content"
                 android:textSize="25dp"
                 android:gravity="center"
-                android:text="oi"
+                android:text="Carregando..."
                 android:textColor="#FFAB00"
 
         ></TextView>
@@ -99,7 +119,7 @@
                     android:layout_height="wrap_content"
                     android:textSize="20dp"
                     android:textColor="#EDD604"
-                    android:text="Seu texto aqui..."
+                    android:text="Carregando..."
                     android:padding="16dp" />
 
         </ScrollView>
